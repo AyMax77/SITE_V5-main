@@ -140,10 +140,6 @@ img {
 .text-section h1 {
   font-size: clamp(1.8rem, 4.5vw + 0.5vh, 4rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #87ceeb 0%, #00bfff 50%, #1e90ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   line-height: 1.2;
   margin: 0;
   font-family: 'PT Serif', serif;
@@ -151,6 +147,89 @@ img {
   text-align: center;
   width: 100%;
   letter-spacing: -0.02em;
+  position: relative;
+}
+
+.text-section h1 .Titre {
+  display: inline-block;
+  background: linear-gradient(135deg, #87ceeb 0%, #00bfff 50%, #1e90ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  padding: clamp(0.8rem, 2vh, 1.2rem) clamp(1.5rem, 4vw, 2.5rem);
+  
+  /* Effet glassmorphism premium */
+  background-color: rgba(135, 206, 235, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  
+  /* Bordures et ombres multiples */
+  border: 2px solid rgba(135, 206, 235, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 16px 64px rgba(135, 206, 235, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  
+  /* Animations */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Effet de lueur animée en arrière-plan */
+.text-section h1 .Titre::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  background: linear-gradient(135deg, 
+    rgba(135, 206, 235, 0.6), 
+    rgba(0, 191, 255, 0.4), 
+    rgba(30, 144, 255, 0.6)
+  );
+  filter: blur(20px);
+  opacity: 0.5;
+  z-index: -1;
+  animation: pulse-border 3s ease-in-out infinite;
+}
+
+/* Hover effects */
+.text-section h1 .Titre:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: rgba(135, 206, 235, 0.4);
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.25),
+    0 24px 80px rgba(135, 206, 235, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.text-section h1 .Titre:hover::before {
+  opacity: 0.8;
+  filter: blur(25px);
+}
+
+/* Animation flottante subtile */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Animation de la bordure lumineuse */
+@keyframes pulse-border {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(25px);
+  }
 }
 
 .text-section h1 span.relative {
@@ -643,6 +722,15 @@ footer .container {
    ======================================== */
 
 @media (max-width: 425px) {
+  .text-section h1 .Titre {
+    padding: clamp(0.6rem, 1.5vh, 0.8rem) clamp(1rem, 3vw, 1.5rem);
+    border-radius: 0.8rem;
+  }
+  
+  .text-section h1 .Titre::before {
+    inset: -2px;
+    border-radius: 0.8rem;
+  }
   .hero-container {
     min-height: 100vh;
     padding-top: clamp(80px, 12vh, 100px);
@@ -687,6 +775,12 @@ footer .container {
    ======================================== */
 
 @media (min-width: 426px) and (max-width: 1076px) {
+
+  .text-section h1 .Titre {
+    padding: clamp(0.7rem, 1.8vh, 1rem) clamp(1.3rem, 3.5vw, 2rem);
+    border-radius: 1rem;
+  }
+
   .hero-container {
     min-height: 100vh;
     padding: clamp(100px, 12vh, 120px) 2rem clamp(60px, 8vh, 80px);
@@ -727,6 +821,11 @@ footer .container {
    ======================================== */
 
 @media (min-width: 1077px) {
+
+  .text-section h1 .Titre {
+    padding: clamp(0.9rem, 2.2vh, 1.3rem) clamp(1.8rem, 4.5vw, 2.8rem);
+  }
+
   .hero-container {
     min-height: 100vh;
     padding: clamp(120px, 15vh, 160px) 2rem clamp(80px, 10vh, 120px);
@@ -801,6 +900,11 @@ footer .container {
    ======================================== */
 
 @media (min-width: 1920px) {
+
+  .text-section h1 .Titre {
+    padding: clamp(1rem, 2.5vh, 1.5rem) clamp(2rem, 5vw, 3rem);
+    border-radius: 1.8rem;
+  }
   .logo img {
     width: 300px;
   }

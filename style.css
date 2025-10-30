@@ -48,9 +48,14 @@ img {
   justify-content: center;
   padding: clamp(8px, 1.5vh, 15px) clamp(3%, 5vw, 5%);
   z-index: 1000;
-  background: rgba(5, 26, 48, 0.95);
   backdrop-filter: blur(10px);
   gap: clamp(15px, 3vw, 30px);
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.nav-container.scrolled {
+  background: linear-gradient(40deg, #0d3b66 2%, #030712);
 }
 
 .logo {
@@ -60,7 +65,7 @@ img {
 }
 
 .logo img {
-  width: clamp(90px, 12vw, 200px);
+  width: clamp(90px, 17vh, 400px);
   height: auto;
   transition: width 0.3s ease;
 }
@@ -191,10 +196,6 @@ img {
   opacity: 1;
 }
 
-.text-section h1 span.absolute {
-  display: none;
-}
-
 .text-section h1 span.relative-inner {
   position: relative;
   background: linear-gradient(135deg, #ffffff 0%, #e6f7ff 100%);
@@ -206,21 +207,79 @@ img {
 .text-section h2 {
   font-size: clamp(1.1rem, 2.8vw + 0.3vh, 1.75rem);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   margin: 0;
   line-height: 1.6;
   text-align: center;
   width: 100%;
   max-width: 750px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   letter-spacing: 0.01em;
-  transition: all 0.3s ease;
+  
+  /* Effet glassmorphism moderne */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(12px);
+  padding: clamp(1rem, 2.5vh, 1.5rem) clamp(1.2rem, 3vw, 2rem);
+  border-radius: clamp(0.8rem, 1.5vw, 1.2rem);
+  
+  /* Bordure lumineuse subtile */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    0 8px 32px rgba(135, 206, 235, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  /* Animation */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de brillance animé */
+.text-section h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.text-section h2:hover::before {
+  left: 100%;
 }
 
 .text-section h2:hover {
   color: rgba(255, 255, 255, 1);
-  text-shadow: 0 2px 12px rgba(135, 206, 235, 0.4);
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(135, 206, 235, 0.08) 100%);
+  border-color: rgba(135, 206, 235, 0.3);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    0 12px 48px rgba(135, 206, 235, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Animation d'apparition */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.text-section h2 {
+  animation: fadeInScale 0.8s ease-out 0.3s both;
 }
 
 .text-section h3 {
@@ -236,9 +295,72 @@ img {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   position: relative;
+  padding: clamp(0.6rem, 1.2vh, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+  border-radius: 0.5rem;
+  background-color: rgba(0, 212, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse-glow 3s ease-in-out infinite;
 }
 
-/* Form Section - Mini Version Ultra Compacte */
+.text-section h3::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.5), rgba(30, 144, 255, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.text-section h3:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.4);
+  letter-spacing: 0.05em;
+}
+
+.text-section h3:hover::before {
+  opacity: 1;
+}
+
+.text-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+.text-section h3:hover::after {
+  width: 80%;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Form Section */
 .form-section {
   padding: clamp(0.5rem, 1vh, 0.75rem);
   border-radius: 0.4rem;
@@ -527,7 +649,7 @@ footer .container {
   }
 
   .text-section {
-    gap: 0;
+    gap: clamp(0.8rem, 2vh, 1.2rem);
   }
 
   .text-section h1 {
@@ -536,6 +658,13 @@ footer .container {
 
   .text-section h2 {
     font-size: 1rem;
+    padding: clamp(0.8rem, 2vh, 1rem) clamp(1rem, 2.5vw, 1.3rem);
+    border-radius: 0.6rem;
+  }
+
+  .text-section h3 {
+    font-size: clamp(0.75rem, 1.3vw, 0.85rem);
+    padding: clamp(0.5rem, 1vh, 0.6rem) clamp(0.8rem, 1.5vw, 1rem);
   }
 
   .form-section {
@@ -554,10 +683,10 @@ footer .container {
 }
 
 /* ========================================
-   RESPONSIVE - TABLET (426px - 1023px)
+   RESPONSIVE - TABLET (426px - 1076px)
    ======================================== */
 
-@media (min-width: 426px)  {
+@media (min-width: 426px) and (max-width: 1076px) {
   .hero-container {
     min-height: 100vh;
     padding: clamp(100px, 12vh, 120px) 2rem clamp(60px, 8vh, 80px);
@@ -565,7 +694,7 @@ footer .container {
 
   .text-section {
     max-width: 600px;
-    gap: 0;
+    gap: clamp(1.2rem, 2.5vh, 1.8rem);
   }
 
   .text-section h1 {
@@ -575,6 +704,12 @@ footer .container {
   .text-section h2 {
     font-size: clamp(1.15rem, 2vw + 0.5vh, 1.4rem);
     text-align: center;
+    padding: clamp(0.9rem, 2.2vh, 1.2rem) clamp(1.1rem, 2.8vw, 1.6rem);
+  }
+
+  .text-section h3 {
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    padding: clamp(0.55rem, 1.1vh, 0.7rem) clamp(1rem, 1.8vw, 1.3rem);
   }
 
   .form-section {
@@ -588,7 +723,7 @@ footer .container {
 }
 
 /* ========================================
-   RESPONSIVE - DESKTOP (1024px+)
+   RESPONSIVE - DESKTOP (1077px+)
    ======================================== */
 
 @media (min-width: 1077px) {
@@ -608,7 +743,7 @@ footer .container {
     text-align: left;
     align-items: flex-start;
     max-width: 700px;
-    gap: 20px;
+    gap: clamp(1.2rem, 2.5vh, 2rem);
   }
 
   .text-section h1 {
@@ -619,11 +754,13 @@ footer .container {
   .text-section h2 {
     text-align: left;
     font-size: clamp(1.3rem, 2vw + 0.5vh, 1.75rem);
+    padding: clamp(1rem, 2.3vh, 1.4rem) clamp(1.2rem, 2.8vw, 1.8rem);
   }
 
   .text-section h3 {
     text-align: left;
     font-size: clamp(0.95rem, 1.5vw + 0.3vh, 1.15rem);
+    padding: clamp(0.6rem, 1.2vh, 0.75rem) clamp(1rem, 2vw, 1.4rem);
   }
 
   .form-section {
@@ -637,13 +774,22 @@ footer .container {
   }
 }
 
+/* ========================================
+   RESPONSIVE - EXTRA LARGE (1920px+)
+   ======================================== */
+
 @media (min-width: 1920px) {
+  .logo img {
+    width: 300px;
+  }
+
   .hero-container {
     padding: clamp(160px, 18vh, 200px) 2rem clamp(120px, 12vh, 150px);
   }
 
   .hero-container .container {
     max-width: 1750px;
+    gap: clamp(5rem, 6vw, 7rem);
   }
 
   .text-section {
@@ -656,10 +802,12 @@ footer .container {
 
   .text-section h2 {
     font-size: clamp(1.5rem, 2.2vw + 0.5vh, 2rem);
+    padding: clamp(1.2rem, 2.8vh, 1.8rem) clamp(1.5rem, 3.5vw, 2.5rem);
   }
 
   .text-section h3 {
     font-size: clamp(1.05rem, 1.6vw + 0.3vh, 1.3rem);
+    padding: clamp(0.7rem, 1.5vh, 0.9rem) clamp(1.3rem, 2.5vw, 1.8rem);
   }
 
   .form-section {

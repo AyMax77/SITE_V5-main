@@ -268,7 +268,7 @@
       <p>Notre site est en cours de finalisation et sera bientôt en ligne. Pour toute information, nous sommes à votre disposition !</p>
       <div class="additional-info">
         <p>Suivez l'avancement de notre projet et restez informé des dernières nouvelles ! 😁</p>
-        <a href="#top" class="contact-button">Contactez-nous</a>
+        <a href="index.html" class="contact-button">Contactez-nous</a>
       </div>
     </div>
   </section>
@@ -324,6 +324,14 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+  window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.nav-container');
+    if (window.scrollY > 1) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
   (function() {
     emailjs.init("CSG-1U1qvDoCAEnGX");
   })();
@@ -338,8 +346,7 @@
         alert('❌ Une erreur est survenue : ' + JSON.stringify(error));
       });
   });
-</script>
-  <script>
+
     document.querySelector('.hamburger').addEventListener('click', () => {
       document.querySelector('.nav-container').classList.toggle('open');
     });

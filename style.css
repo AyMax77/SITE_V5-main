@@ -646,14 +646,15 @@ footer .container {
 
   .hero-container .container {
     gap: clamp(5rem, 6vw, 7rem);
+    max-width: 1750px;
   }
 
   .text-section {
-    max-width: 900px;
+    max-width: 1000px;
   }
 
   .text-section h1 {
-    font-size: clamp(3.5rem, 4vw + 1vh, 5rem);
+    font-size: clamp(3.5rem, 4vw + 1vh,4rem );
   }
 
   .text-section h2 {
@@ -665,7 +666,8 @@ footer .container {
   }
 
   .form-section {
-    max-width: 400px;
+    flex: 0 0 auto;
+    max-width: 500px;
     padding: clamp(1rem, 2vh, 1.3rem);
   }
 

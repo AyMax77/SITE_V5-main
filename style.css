@@ -748,18 +748,18 @@ footer .container {
 
   .text-section h1 {
     text-align: left;
-    font-size: clamp(2.5rem, 3.5vw + 1vh, 3.5rem);
+    font-size: 50px;
   }
 
   .text-section h2 {
     text-align: left;
-    font-size: clamp(1.3rem, 2vw + 0.5vh, 1.75rem);
+    font-size: 17px;
     padding: clamp(1rem, 2.3vh, 1.4rem) clamp(1.2rem, 2.8vw, 1.8rem);
   }
 
   .text-section h3 {
     text-align: left;
-    font-size: clamp(0.95rem, 1.5vw + 0.3vh, 1.15rem);
+    font-size: 12px;
     padding: clamp(0.6rem, 1.2vh, 0.75rem) clamp(1rem, 2vw, 1.4rem);
   }
 
@@ -771,6 +771,28 @@ footer .container {
 
   .footer-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* RESPONSIVE LAPTOP 14" */
+
+@media (min-width : 1400px){
+  .text-section h1 {
+    text-align: left;
+    font-size: 50px;
+  }
+
+  .text-section h2 {
+    text-align: left;
+    font-size: 25px;
+    padding: clamp(1rem, 2.3vh, 1.4rem) clamp(1.2rem, 2.8vw, 1.8rem);
+  }
+
+  .text-section h3 {
+    text-align: left;
+    font-size: 15px;
+    padding: clamp(0.6rem, 1.2vh, 0.75rem) clamp(1rem, 2vw, 1.4rem);
   }
 }
 

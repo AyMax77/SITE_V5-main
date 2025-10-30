@@ -607,6 +607,7 @@ footer .container {
     text-align: left;
     align-items: flex-start;
     max-width: 700px;
+    gap: 20px;
   }
 
   .text-section h1 {
@@ -635,17 +636,12 @@ footer .container {
   }
 }
 
-/* ========================================
-   RESPONSIVE - EXTRA LARGE (1921px+)
-   ======================================== */
-
-@media (min-width: 1921px) {
+@media (min-width: 1920px) {
   .hero-container {
     padding: clamp(160px, 18vh, 200px) 2rem clamp(120px, 12vh, 150px);
   }
 
   .hero-container .container {
-    gap: clamp(5rem, 6vw, 7rem);
     max-width: 1750px;
   }
 
@@ -654,7 +650,7 @@ footer .container {
   }
 
   .text-section h1 {
-    font-size: clamp(3.5rem, 4vw + 1vh,4rem );
+    font-size: clamp(3.5rem, 4vw + 1vh, 4rem);
   }
 
   .text-section h2 {
@@ -667,23 +663,45 @@ footer .container {
 
   .form-section {
     flex: 0 0 auto;
-    max-width: 500px;
-    padding: clamp(1rem, 2vh, 1.3rem);
+    max-width: 480px;
+    padding: clamp(1.5rem, 2.5vh, 2rem);
+  }
+
+  .form-section h3 {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    margin-bottom: clamp(0.8rem, 1.5vh, 1rem);
+  }
+
+  .form-section form {
+    gap: clamp(0.6rem, 1vh, 0.8rem);
+  }
+
+  .form-section .grid {
+    gap: clamp(0.6rem, 1vh, 0.8rem);
   }
 
   .form-section label {
-    font-size: 0.8rem;
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+    margin-bottom: 0.3rem;
+    font-weight: 600;
   }
 
   .form-section input,
   .form-section select,
   .form-section textarea {
-    font-size: 0.85rem;
-    padding: clamp(6px, 1vh, 8px);
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    padding: clamp(8px, 1.2vh, 12px);
+    border-radius: 0.35rem;
+  }
+
+  .form-section textarea {
+    min-height: clamp(70px, 8vh, 90px);
   }
 
   .form-section button {
-    font-size: 0.9rem;
-    padding: clamp(0.6rem, 1.2vh, 0.75rem) clamp(1.5rem, 2vw, 1.8rem);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    padding: clamp(0.75rem, 1.5vh, 0.9rem) clamp(1.8rem, 2.5vw, 2.2rem);
+    max-width: 260px;
+    margin-top: clamp(0.6rem, 1vh, 0.8rem);
   }
 }

@@ -113,7 +113,6 @@ img {
   flex-direction: column;
   gap: clamp(1rem, 2vw, 2rem);
   text-align: center;
-  align-items: center;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -649,7 +648,6 @@ footer .container {
     text-align: left;
     max-width: 600px;
     align-items: flex-start;
-    gap: 15px;
   }
 
   .text-section h1 {
@@ -703,12 +701,16 @@ footer .container {
   .text-section h1 {
     font-size: 3.5rem;
     line-height: 1.2;
-    text-align: center;
+    text-align: left;
   }
 
   .text-section h2 {
     font-size: 1.5rem;
-    text-align: center;
+    text-align: left;
+  }
+  .text-section h3{
+    font-size: 1rem;
+    text-align: left;
   }
 
   .form-section {
@@ -755,6 +757,7 @@ footer .container {
   .text-section h1 {
     font-size: 4rem;
     line-height: 1.15;
+    text-align: left;
   }
 
   .text-section h2 {

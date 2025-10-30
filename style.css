@@ -1,0 +1,785 @@
+/* ========================================
+   GENERAL STYLES
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'PT Serif', serif;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: linear-gradient(65deg, #051a30 50%, #02070c);
+  color: #333;
+  line-height: 1.6;
+  font-size: clamp(14px, 1.2vw, 16px);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+/* ========================================
+   NAVBAR
+   ======================================== */
+
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 1.5vh, 15px) clamp(3%, 5vw, 5%);
+  z-index: 1000;
+  background: rgba(5, 26, 48, 0.95);
+  backdrop-filter: blur(10px);
+  gap: clamp(15px, 3vw, 30px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: clamp(90px, 12vw, 200px);
+  height: auto;
+  transition: width 0.3s ease;
+}
+
+
+.phone-button {
+  background: #0072BC;
+  color: white;
+  border: none;
+  padding: clamp(8px, 1vh, 12px) clamp(15px, 2vw, 24px);
+  font-size: clamp(13px, 1vw, 18px);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.phone-button:hover {
+  background: #005f9e;
+  transform: scale(1.05);
+}
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-container {
+  padding: clamp(80px, 12vh, 120px) clamp(1rem, 3vw, 2rem) clamp(2rem, 4vh, 3rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.hero-container .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Text Section */
+.text-section {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 2rem);
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-section h1 {
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: lightskyblue;
+  line-height: 1.3;
+  margin: 0;
+  font-family: 'PT Serif', serif;
+  word-wrap: break-word;
+  text-align: center;
+  width: 100%;
+}
+
+.text-section h1 span.relative {
+  color: white;
+  border-radius: 1rem;
+  font-family: 'PT Serif', serif;
+  box-shadow: 0 4px 60px rgba(252, 252, 252, 0.432);
+  display: inline-block;
+  transition: transform 0.3s ease;
+  position: relative;
+  padding: 0 clamp(0.5rem, 1vw, 1rem);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.text-section h1 span.relative:hover {
+  transform: scale(1.05);
+}
+
+.text-section h1 span.absolute {
+  display: none;
+}
+
+.text-section h1 span.relative-inner {
+  position: relative;
+}
+
+.text-section h2 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: lightgray;
+  margin: 0;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.text-section h2:hover {
+  opacity: 1;
+}
+
+/* Form Section - Mini Version Ultra Compacte */
+.form-section {
+  padding: clamp(0.4rem, 0.8vw, 0.6rem);
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 8px rgba(252, 252, 252, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.form-section h3 {
+  font-size: clamp(0.75rem, 1.3vw, 0.88rem);
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 0.5vw, 0.35rem);
+  width: 100%;
+}
+
+.form-section form > div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+.form-section .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.25rem, 0.5vw, 0.35rem);
+  width: 100%;
+}
+
+.form-section label {
+  margin-bottom: 0.1rem;
+  color: white;
+  font-size: clamp(0.6rem, 0.85vw, 1rem);
+  display: block;
+  text-align: left;
+}
+
+.form-section input,
+.form-section select,
+.form-section textarea {
+  border-radius: 0.25rem;
+  font-size: clamp(0.65rem, 0.85vw, 0.75rem);
+  padding: clamp(3px, 0.5vw, 5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: rgba(255, 243, 243, 0.85);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-section textarea {
+  min-height: clamp(35px, 5vw, 50px);
+  resize: vertical;
+}
+
+.form-section input:focus,
+.form-section select:focus,
+.form-section textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1.5px rgba(59, 130, 246, 0.15);
+  outline: none;
+}
+
+.form-section button {
+  background-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  padding: clamp(0.35rem, 0.8vw, 0.5rem) clamp(0.8rem, 1.6vw, 1.2rem);
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: clamp(0.65rem, 1vw, 0.78rem);
+  width: 100%;
+  max-width: 180px;
+  margin: clamp(0.25rem, 0.5vw, 0.4rem) auto 0;
+}
+
+.form-section button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(29, 78, 216, 0.2);
+}
+
+.form-section button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.text-center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ========================================
+   CONSTRUCTION SECTION
+   ======================================== */
+
+.construction-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: clamp(30px, 5vw, 60px) clamp(15px, 3vw, 40px);
+  width: 100%;
+}
+
+.construction-container {
+  border-radius: clamp(12px, 2vw, 20px);
+  padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 40px);
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease both;
+  text-align: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hammer {
+  width: clamp(100px, 25vw, 200px);
+  height: clamp(100px, 25vw, 200px);
+  margin: 0 auto clamp(15px, 3vw, 25px);
+  animation: swing 1.5s ease-in-out infinite alternate;
+  background: url('/images/marteau_thor.png') no-repeat center / contain;
+}
+
+@keyframes swing {
+  from {
+    transform: rotate(-15deg);
+  }
+  to {
+    transform: rotate(15deg);
+  }
+}
+
+.construction-container h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: white;
+  margin-bottom: clamp(10px, 2vw, 20px);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.construction-container p {
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  color: white;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.additional-info {
+  padding: clamp(10px, 2vw, 15px);
+  border-radius: 10px;
+  margin-top: clamp(10px, 2vw, 15px);
+  text-align: center;
+}
+
+.contact-button {
+  display: inline-block;
+  background: linear-gradient(90deg, #0072BC, #00B4D8);
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 30px);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: clamp(15px, 3vw, 20px);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.contact-button:hover {
+  background: linear-gradient(90deg, #009BFF, #00D0FF);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 114, 188, 0.3);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+  background: #1e293b;
+  color: white;
+  padding: clamp(30px, 5vw, 50px) clamp(15px, 3vw, 30px);
+  width: 100%;
+}
+
+footer .container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(20px, 4vw, 40px);
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-grid h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-grid li {
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+}
+
+.footer-grid p {
+  margin: 0.3rem 0;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+}
+
+.footer-grid a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-grid a:hover {
+  color: #0072BC;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #334155;
+  margin-top: clamp(20px, 4vw, 30px);
+  padding-top: clamp(15px, 3vw, 20px);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  opacity: 0.8;
+}
+
+.footer-bottom p {
+  margin: 0.5rem 0;
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (max 425px)
+   ======================================== */
+
+@media (max-width: 425px) {
+  .nav-container {
+    padding: 10px 4%;
+  }
+
+  .logo img {
+    width: 85px;
+  }
+
+
+  .phone-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+  }
+
+  .hero-container {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .hero-container .container {
+    gap: 2rem;
+  }
+
+  .text-section {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .text-section h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+
+  .text-section h2 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .form-section {
+    padding: 0.75rem;
+    max-width: 100%;
+  }
+
+  .form-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-section form {
+    gap: 0.4rem;
+  }
+
+  .form-section .grid {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .form-section label {
+    font-size: 0.7rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .form-section input,
+  .form-section select,
+  .form-section textarea {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+
+  .form-section textarea {
+    min-height: 50px;
+  }
+
+  .form-section button {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.8rem;
+    max-width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-grid ul,
+  .footer-grid p {
+    text-align: center;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (425px - 1023px)
+   ======================================== */
+
+@media (min-width: 425px) and (max-width: 1023px) {
+  
+
+  .phone-button {
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+  }
+
+  .hero-container {
+    padding: 100px 2rem 60px;
+  }
+  .text-section {
+    max-width: 500px;
+    gap: 0.5rem;
+  }
+
+  .text-section h1 {
+    font-size: 2rem;
+    text-align: left;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  .text-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-section {
+    max-width: 400px;
+    padding: 0.75rem;
+  }
+
+  .form-section .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - DESKTOP (1024px - 1439px)
+   ======================================== */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .hero-container {
+    padding: 120px 2rem 80px;
+  }
+
+  .hero-container .container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .text-section {
+    flex: 1;
+    text-align: left;
+    max-width: 600px;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .text-section h1 {
+    font-size: 2.5rem;
+    text-align: left;
+  }
+
+  .text-section h2 {
+    font-size: 1.50rem;
+    text-align: left;
+  }
+
+  .form-section {
+    max-width: 350px;
+    padding: 0.85rem;
+  }
+
+  .form-section .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   RESPONSIVE - LARGE DESKTOP (1440px+)
+   ======================================== */
+
+@media (min-width: 1440px) {
+  .nav-container {
+    padding: 15px 5%;
+  }
+
+  .hero-container {
+    padding: 140px 2rem 100px;
+  }
+
+  .hero-container .container {
+    flex-direction: row;
+    max-width: 1600px;
+  }
+
+  .text-section {
+    flex: 1;
+    text-align: center;
+    max-width: 750px;
+    align-items:flex-end;
+  }
+
+  .text-section h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .text-section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .form-section {
+    max-width: 400px;
+    padding: 0.9rem;
+  }
+
+  .form-section h3 {
+    font-size: 0.95rem;
+  }
+
+  .form-section .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - EXTRA LARGE (1920px+)
+   ======================================== */
+
+@media (min-width: 1920px) {
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .hero-container {
+    padding: 160px 2rem 120px;
+  }
+
+  .hero-container .container {
+    gap: 5rem;
+    max-width: 1800px;
+  }
+
+  .text-section {
+    max-width: 900px;
+  }
+
+  .text-section h1 {
+    font-size: 4rem;
+    line-height: 1.15;
+  }
+
+  .text-section h2 {
+    font-size: 1.75rem;
+  }
+
+  .form-section {
+    max-width: 500px;
+    padding: 1rem;
+  }
+
+  .form-section h3 {
+    font-size: 1rem;
+  }
+
+  .form-section label {
+    font-size: 0.75rem;
+  }
+
+  .form-section input,
+  .form-section select,
+  .form-section textarea {
+    font-size: 0.82rem;
+    padding: 7px;
+  }
+
+  .form-section textarea {
+    min-height: 60px;
+  }
+
+  .form-section button {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .footer-grid {
+    max-width: 1600px;
+  }
+}

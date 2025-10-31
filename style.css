@@ -929,8 +929,8 @@ footer .container {
    ======================================== */
 
 @media (min-width: 1920px) {
-  .nav-container{
-    max-width: 2200px;
+  .phone-button{
+    margin-right: 35px;
   }
 
   .text-section h1 .Titre {
@@ -1010,5 +1010,17 @@ footer .container {
     padding: clamp(0.75rem, 1.5vh, 0.9rem) clamp(1.8rem, 2.5vw, 2.2rem);
     max-width: 260px;
     margin-top: clamp(0.6rem, 1vh, 0.8rem);
+  }
+}
+
+@media (min-width: 2800px) {
+  .phone-button{
+    margin-right: 430px;
+  }
+}
+
+@media (min-width: 3440px){
+  .phone-button{
+    margin-right: 720px;
   }
 }

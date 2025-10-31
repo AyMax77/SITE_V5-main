@@ -40,16 +40,14 @@ img {
 
 .nav-container {
   position: fixed;
-  top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: clamp(8px, 1.5vh, 15px) clamp(3%, 5vw, 5%);
   z-index: 1000;
   backdrop-filter: blur(10px);
-  gap: clamp(15px, 3vw, 30px);
   background: transparent;
   transition: background 0.3s ease;
 }
@@ -62,6 +60,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute; /* Centre parfaitement */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .logo img {
@@ -83,6 +84,7 @@ img {
   text-decoration: none;
   display: inline-block;
   white-space: nowrap;
+  margin-left: auto; /* Pousse le bouton tout à droite */
 }
 
 .phone-button:hover {
@@ -152,7 +154,7 @@ img {
 
 .text-section h1 .Titre {
   display: inline-block;
-  background: linear-gradient(135deg, #87ceeb 0%, #00bfff 50%, #1e90ff 100%);
+  background: linear-gradient(50deg, #1928f1 0%, #384a85 50%, #1e90ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -722,6 +724,26 @@ footer .container {
    ======================================== */
 
 @media (max-width: 425px) {
+  .nav-container {
+    justify-content: space-between;
+    padding: clamp(8px, 2vh, 12px) clamp(4%, 5vw, 6%);
+  }
+
+  .logo {
+    position: static; /* Annule le positionnement absolu */
+    transform: none; /* Annule le centrage */
+    justify-content: flex-start; /* Aligne à gauche */
+  }
+
+  .logo img {
+    width: 150px
+  }
+
+  .phone-button {
+    margin-left: 0; /* Annule le margin-left: auto */
+    padding: clamp(6px, 1vh, 10px) clamp(12px, 3vw, 18px);
+    font-size: clamp(11px, 2.5vw, 14px);
+  }
   .text-section h1 .Titre {
     padding: clamp(0.6rem, 1.5vh, 0.8rem) clamp(1rem, 3vw, 1.5rem);
     border-radius: 0.8rem;
@@ -775,6 +797,9 @@ footer .container {
    ======================================== */
 
 @media (min-width: 426px) and (max-width: 1076px) {
+  .logo img{
+    width: 200px;
+  }
 
   .text-section h1 .Titre {
     padding: clamp(0.7rem, 1.8vh, 1rem) clamp(1.3rem, 3.5vw, 2rem);
@@ -821,6 +846,10 @@ footer .container {
    ======================================== */
 
 @media (min-width: 1077px) {
+
+  .logo img{
+    width: 250px;
+  }
 
   .text-section h1 .Titre {
     padding: clamp(0.9rem, 2.2vh, 1.3rem) clamp(1.8rem, 4.5vw, 2.8rem);

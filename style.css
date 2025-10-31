@@ -929,6 +929,9 @@ footer .container {
    ======================================== */
 
 @media (min-width: 1920px) {
+  .nav-container{
+    max-width: 2350px;
+  }
 
   .text-section h1 .Titre {
     padding: clamp(1rem, 2.5vh, 1.5rem) clamp(2rem, 5vw, 3rem);

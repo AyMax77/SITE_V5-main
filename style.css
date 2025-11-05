@@ -39,57 +39,83 @@ img {
    ======================================== */
 
 .nav-container {
-  position: fixed;
-  right: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(8px, 1.5vh, 15px) clamp(3%, 5vw, 5%);
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-  background: transparent;
-  transition: background 0.3s ease;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Modifié de center à space-between */
+    padding: 15px 5%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    transition: background 0.3s ease;
 }
 
 .nav-container.scrolled {
-  background: linear-gradient(40deg, #0d3b66 2%, #030712);
+    background: linear-gradient(40deg, #0d3b66 2%, #030712);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute; /* Centre parfaitement */
-  left: 50%;
-  transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.logo img {
-  width: clamp(90px, 17vh, 400px);
-  height: auto;
-  transition: width 0.3s ease;
+.logo-img {
+    width: 250px;
+    height: auto;
+    transition: width 0.3s ease;
 }
 
+/* Bouton Fibre à gauche */
+.fiber-button {
+    background: #0072BC;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    z-index: 10; /* Au-dessus du logo */
+}
+
+.fiber-button:hover {
+    background: #005f9e;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Bouton Téléphone à droite */
 .phone-button {
-  background: #0072BC;
-  color: white;
-  border: none;
-  padding: clamp(8px, 1vh, 12px) clamp(15px, 2vw, 24px);
-  font-size: clamp(13px, 1vw, 18px);
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  text-decoration: none;
-  display: inline-block;
-  white-space: nowrap;
-  margin-left: auto; /* Pousse le bouton tout à droite */
+    background: #0072BC;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    z-index: 10; /* Au-dessus du logo */
 }
 
 .phone-button:hover {
-  background: #005f9e;
-  transform: scale(1.05);
+    background: #005f9e;
+    transform: scale(1.05);
 }
 
 /* ========================================
@@ -552,6 +578,139 @@ img {
   width: 100%;
 }
 
+.eligibility-section {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h1 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #cccccc;
+            max-width: 1000px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border-radius: 16px;
+            padding: 10px;
+        }
+
+        .image-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            max-height: 600px;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 30px 20px 20px;
+            color: white;
+        }
+
+        .image-overlay h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .image-overlay p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .eligibility-box {
+            display: flex;
+            flex-direction: column;
+            background: #efefef;
+            border-radius: 20px;
+        }
+
+        .eligibility-box h2 {
+            font-size: 32px;
+            color: #000000;
+            margin-bottom: 0px;
+            text-align: center;
+            margin-top: 0px;
+
+        }
+
+        .eligibility-box .subtitle {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 0px;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 0px;
+
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 0px;
+        }
+
+        .features-list li {
+            padding: 5px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #000000;
+            font-size: 15px;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .iframe-container {
+            margin-top: 0px;
+        }
+
 /* ========================================
    CONSTRUCTION SECTION
    ======================================== */
@@ -739,6 +898,7 @@ footer .container {
     width: 150px
   }
 
+  .fiber-button,
   .phone-button {
     margin-left: 0; /* Annule le margin-left: auto */
     padding: clamp(6px, 1vh, 10px) clamp(12px, 3vw, 18px);
@@ -790,6 +950,19 @@ footer .container {
     grid-template-columns: 1fr;
     text-align: center;
   }
+
+  .section-title h1 {
+    font-size: 28px;
+    
+
+  .section-title p {
+    font-size: 16px;
+    }
+
+  .content-wrapper {
+    padding: 20px 15px;
+    gap: 30px;
+  }
 }
 
 /* ========================================
@@ -839,6 +1012,24 @@ footer .container {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    }
+
+  .image-box {
+    order: -1;
+    height: 300px;
+            }
+
+  .section-title h1 {
+    font-size: 32px;
+  }
+
+  .eligibility-box h2 {
+    font-size: 26px;
+  }
+}
 }
 
 /* ========================================
@@ -932,6 +1123,9 @@ footer .container {
   .phone-button{
     margin-right: 35px;
   }
+  .fiber-button{
+    margin-left: 60px;
+  }
 
   .text-section h1 .Titre {
     padding: clamp(1rem, 2.5vh, 1.5rem) clamp(2rem, 5vw, 3rem);
@@ -1017,10 +1211,16 @@ footer .container {
   .phone-button{
     margin-right: 430px;
   }
+  .fiber-button{
+    margin-left: 450px;
+  }
 }
 
 @media (min-width: 3440px){
   .phone-button{
     margin-right: 720px;
+  }
+  .fiber-button{
+    margin-left: 730px;
   }
 }

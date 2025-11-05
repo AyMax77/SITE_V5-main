@@ -1,0 +1,772 @@
+/* ==================== RESET & BASE ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0d3b66 0%, #030712 100%);
+    height: 100vh; /* Hauteur fixe */
+    overflow: hidden; /* Pas de scroll sur la page */
+}
+
+/* ==================== NAVIGATION ==================== */
+.nav-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 5%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+.nav-container.scrolled {
+    background: linear-gradient(40deg, #0d3b66 2%, #030712);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo-img {
+    width: 250px;
+    height: auto;
+    transition: width 0.3s ease;
+}
+
+.phone-button {
+    background: #0072BC;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+.phone-button:hover {
+    background: #005f9e;
+    transform: scale(1.05);
+}
+
+/* ==================== SECTION ÉLIGIBILITÉ ==================== */
+.eligibility-section {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 100px 20px 40px;
+    height: 100vh; /* Hauteur fixe à 100% de l'écran */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Pas de scroll sur la section */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    flex-shrink: 0; /* Ne se comprime pas */
+}
+
+.section-title h1 {
+    font-size: 38px;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.section-title p {
+    font-size: 17px;
+    color: #cccccc;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    padding: 0 15px;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    border-radius: 16px;
+    padding: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex: 1; /* Prend tout l'espace disponible */
+    min-height: 0; /* Important pour le scroll */
+}
+
+/* ==================== IMAGE BOX ==================== */
+.image-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 100%; /* Prend toute la hauteur disponible */
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.image-box:hover img {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    padding: 25px 18px 18px;
+    color: white;
+}
+
+.image-overlay h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.image-overlay p {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* ==================== ELIGIBILITY BOX ==================== */
+.eligibility-box {
+    display: flex;
+    flex-direction: column;
+    background: #efefef;
+    border-radius: 20px;
+    padding: 25px;
+    height: 100%; /* Prend toute la hauteur disponible */
+    overflow-y: auto; /* Scroll vertical à l'intérieur */
+    overflow-x: hidden;
+}
+
+/* Style de la scrollbar (optionnel mais joli) */
+.eligibility-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.eligibility-box::-webkit-scrollbar-track {
+    background: #d0d0d0;
+    border-radius: 10px;
+}
+
+.eligibility-box::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.eligibility-box::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+}
+
+.eligibility-box h2 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+    flex-shrink: 0; /* Ne se comprime pas */
+}
+
+.eligibility-box .subtitle {
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    text-align: center;
+    flex-shrink: 0; /* Ne se comprime pas */
+}
+
+.features-list {
+    list-style: none;
+    margin-bottom: 18px;
+    flex-shrink: 0; /* Ne se comprime pas */
+}
+
+.features-list li {
+    padding: 7px 0;
+    padding-left: 35px;
+    position: relative;
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.features-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.iframe-container {
+    margin-top: 0px;
+    flex-shrink: 0; /* Ne se comprime pas */
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+
+/* ========== GRAND ÉCRAN (Desktop XL) ========== */
+@media (min-width: 1920px) {
+    .logo-img {
+        width: 280px;
+    }
+
+    .phone-button {
+        font-size: 18px;
+        padding: 14px 28px;
+    }
+
+    .eligibility-section {
+        max-width: 1600px;
+        padding: 120px 40px 60px;
+    }
+
+    .section-title h1 {
+        font-size: 44px;
+        margin-bottom: 18px;
+    }
+
+    .section-title p {
+        font-size: 19px;
+    }
+
+    .content-wrapper {
+        gap: 35px;
+        max-width: 1500px;
+    }
+
+    .eligibility-box {
+        padding: 30px;
+    }
+
+    .eligibility-box h2 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .eligibility-box .subtitle {
+        font-size: 17px;
+        margin-bottom: 20px;
+    }
+
+    .features-list {
+        margin-bottom: 20px;
+    }
+
+    .features-list li {
+        font-size: 16px;
+        padding: 8px 0 8px 38px;
+    }
+
+    .features-list li:before {
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+    }
+}
+
+/* ========== LAPTOP (Desktop Standard) ========== */
+@media (min-width: 1200px) and (max-width: 1919px) {
+    .logo-img {
+        width: 250px;
+    }
+
+    .phone-button {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+
+    .eligibility-section {
+        max-width: 1600px;
+        padding: 100px 30px 40px;
+    }
+
+    .section-title {
+        margin-bottom: 30px;
+    }
+
+    .section-title h1 {
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .section-title p {
+        font-size: 17px;
+    }
+
+    .content-wrapper {
+        gap: 30px;
+        max-width: 1400px;
+    }
+
+    .eligibility-box {
+        padding: 25px;
+    }
+
+    .eligibility-box h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .eligibility-box .subtitle {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    .features-list {
+        margin-bottom: 18px;
+    }
+
+    .features-list li {
+        font-size: 14px;
+        padding: 7px 0 7px 35px;
+    }
+
+    .features-list li:before {
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+}
+
+/* ========== PETIT LAPTOP ========== */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .logo-img {
+        width: 220px;
+    }
+
+    .phone-button {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+
+    .eligibility-section {
+        max-width: 1400px;
+        padding: 90px 25px 40px;
+    }
+
+    .section-title {
+        margin-bottom: 25px;
+    }
+
+    .section-title h1 {
+        font-size: 34px;
+        margin-bottom: 12px;
+    }
+
+    .section-title p {
+        font-size: 16px;
+    }
+
+    .content-wrapper {
+        gap: 28px;
+        max-width: 1200px;
+    }
+
+    .eligibility-box {
+        padding: 22px;
+    }
+
+    .eligibility-box h2 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .eligibility-box .subtitle {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .features-list {
+        margin-bottom: 16px;
+    }
+
+    .features-list li {
+        font-size: 13px;
+        padding: 6px 0 6px 33px;
+    }
+
+    .features-list li:before {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        top: 6px;
+    }
+}
+
+/* ========== TABLETTE PAYSAGE ========== */
+@media (min-width: 768px) and (max-width: 991px) {
+    .logo-img {
+        width: 200px;
+    }
+
+    .phone-button {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+
+    .eligibility-section {
+        padding: 80px 20px 30px;
+        height: 100vh;
+    }
+
+    .section-title {
+        margin-bottom: 20px;
+    }
+
+    .section-title h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .section-title p {
+        font-size: 15px;
+    }
+
+    .content-wrapper {
+        gap: 25px;
+        max-width: 100%;
+    }
+
+    .eligibility-box {
+        padding: 20px;
+    }
+
+    .eligibility-box h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .eligibility-box .subtitle {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    .features-list {
+        margin-bottom: 14px;
+    }
+
+    .features-list li {
+        font-size: 13px;
+        padding: 5px 0 5px 32px;
+    }
+
+    .features-list li:before {
+        width: 21px;
+        height: 21px;
+        font-size: 11px;
+        top: 5px;
+    }
+}
+
+/* ========== TABLETTE PORTRAIT ========== */
+@media (min-width: 481px) and (max-width: 767px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .logo-img {
+        width: 180px;
+    }
+
+    .phone-button {
+        font-size: 13px;
+        padding: 9px 16px;
+    }
+
+    .eligibility-section {
+        padding: 70px 15px 30px;
+        height: 100vh;
+    }
+
+    .section-title {
+        margin-bottom: 20px;
+    }
+
+    .section-title h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .image-box {
+        order: -1;
+        height: 35vh; /* Hauteur fixe en viewport */
+    }
+
+    .eligibility-box {
+        padding: 18px;
+        height: auto;
+        max-height: calc(65vh - 150px); /* Hauteur restante */
+    }
+
+    .eligibility-box h2 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .eligibility-box .subtitle {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+
+    .features-list {
+        margin-bottom: 14px;
+    }
+
+    .features-list li {
+        font-size: 12px;
+        padding: 5px 0 5px 30px;
+    }
+
+    .features-list li:before {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        top: 5px;
+    }
+
+    .iframe-container {
+        margin-top: 10px;
+    }
+}
+
+/* ========== MOBILE ========== */
+@media (min-width: 376px) and (max-width: 480px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .logo-img {
+        width: 160px;
+    }
+
+    .phone-button {
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+    .eligibility-section {
+        padding: 70px 12px 25px;
+        height: 100vh;
+    }
+
+    .section-title {
+        margin-bottom: 18px;
+    }
+
+    .section-title h1 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .section-title p {
+        font-size: 13px;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 5px;
+    }
+
+    .image-box {
+        order: -1;
+        height: 30vh;
+    }
+
+    .image-overlay {
+        padding: 18px 12px 12px;
+    }
+
+    .image-overlay h3 {
+        font-size: 18px;
+    }
+
+    .image-overlay p {
+        font-size: 11px;
+    }
+
+    .eligibility-box {
+        padding: 16px;
+        border-radius: 15px;
+        max-height: calc(70vh - 150px);
+    }
+
+    .eligibility-box h2 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .eligibility-box .subtitle {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .features-list {
+        margin-bottom: 12px;
+    }
+
+    .features-list li {
+        font-size: 11px;
+        padding: 4px 0 4px 28px;
+    }
+
+    .features-list li:before {
+        width: 19px;
+        height: 19px;
+        font-size: 10px;
+        top: 4px;
+    }
+
+    .iframe-container {
+        margin-top: 10px;
+    }
+}
+
+/* ========== PETIT MOBILE ========== */
+@media (max-width: 375px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .logo-img {
+        width: 140px;
+    }
+
+    .phone-button {
+        font-size: 11px;
+        padding: 7px 12px;
+    }
+
+    .eligibility-section {
+        padding: 65px 10px 20px;
+        height: 100vh;
+    }
+
+    .section-title {
+        margin-bottom: 15px;
+    }
+
+    .section-title h1 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .section-title p {
+        font-size: 12px;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 5px;
+    }
+
+    .image-box {
+        order: -1;
+        height: 28vh;
+    }
+
+    .image-overlay {
+        padding: 15px 10px 10px;
+    }
+
+    .image-overlay h3 {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .image-overlay p {
+        font-size: 10px;
+    }
+
+    .eligibility-box {
+        padding: 14px;
+        border-radius: 12px;
+        max-height: calc(72vh - 130px);
+    }
+
+    .eligibility-box h2 {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    .eligibility-box .subtitle {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+
+    .features-list {
+        margin-bottom: 10px;
+    }
+
+    .features-list li {
+        font-size: 11px;
+        padding: 3px 0 3px 26px;
+    }
+
+    .features-list li:before {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+        top: 3px;
+    }
+
+    .iframe-container {
+        margin-top: 8px;
+    }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test d'Éligibilité Fibre - Nemoxia</title>
+    <link rel="stylesheet" href="Fibre.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container" id="navbar">
+        <div class="logo">
+            <img src="/images/Logo_Nemoxia_blanc.png" alt="Logo Nemoxia - Prestataire informatique et télécom Nemours 77" class="logo-img">
+        </div>
+        <a class="phone-button" href="tel:+330175439100">01 75 43 91 00</a>
+    </nav>
+
+    <!-- Section Éligibilité -->
+    <section class="eligibility-section">
+        <!-- Titre principal -->
+        <div class="section-title">
+            <h1>🚀 Testez votre Éligibilité à la Fibre</h1>
+            <p>Découvrez en quelques clics si vous pouvez bénéficier de la connexion ultra-rapide par fibre optique</p>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="content-wrapper">
+            <!-- Image à gauche -->
+            <div class="image-box">
+                <img src="/images/Fibre_optique.png" alt="Fibre optique - Connexion ultra-rapide">
+                <div class="image-overlay">
+                    <h3>⚡ Fibre Optique</h3>
+                    <p>Jusqu'à 8 Gb/s de débit</p>
+                </div>
+            </div>
+
+            <!-- Formulaire d'éligibilité à droite -->
+            <div class="eligibility-box">
+                <h2>Vérifiez votre éligibilité</h2>
+                <p class="subtitle">
+                    Profitez d'une connexion Internet ultra-rapide et stable. 
+                    La fibre optique révolutionne votre expérience en ligne.
+                </p>
+
+                <ul class="features-list">
+                    <li>Débit symétrique ultra-rapide</li>
+                    <li>Connexion stable et fiable</li>
+                    <li>Idéal pour le télétravail et le streaming</li>
+                    <li>Installation rapide par nos experts</li>
+                </ul>
+
+                <!-- Iframe du test d'éligibilité -->
+                <div class="iframe-container">
+                    <iframe 
+                        id="test-eligibilite" 
+                        src="https://iframe.api-eligibility.fr/?i=2201" 
+                        width="992" 
+                        height="308" 
+                        style="display:block;width:100%;max-width:100%;border:0;overflow:hidden;border-radius:8px;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Script pour ajuster la hauteur de l'iframe
+        !function(){
+            var t = window.addEventListener ? "addEventListener" : "attachEvent",
+                e = window[t],
+                a = "attachEvent" == t ? "onmessage" : "message",
+                n = document.getElementById("test-eligibilite");
+            
+            e(a, function(t){
+                if(t.data && t.data.h) {
+                    n.height = t.data.h;
+                    n.style.height = t.data.h + 'px';
+                }
+            }, false);
+        }();
+
+        // Script pour la navbar qui change au scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

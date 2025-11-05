@@ -167,11 +167,14 @@
 
 <body>
   <nav class="nav-container">
+    <a class="fiber-button" href="/Fibre.html">📡 Éligibilité Fibre</a>
+    
     <div class="logo">
-      <img src="images/Logo_Nemoxia_blanc.png" alt="Logo Nemoxia - Prestataire informatique et télécom Nemours 77" class="logo-img">
+        <img src="images/Logo_Nemoxia_blanc.png" alt="Logo Nemoxia - Prestataire informatique et télécom Nemours 77" class="logo-img">
     </div>
-    <a class="phone-button" href="tel:+330175439100">01 75 43 91 00</a>
-  </nav>
+    
+    <a class="phone-button" href="tel:+330175439100">📞 01 75 43 91 00</a>
+</nav>
 
   <section class="hero-container">
     <div class="container">
@@ -263,6 +266,7 @@
 </div>
   </section>
 
+
   <section class="construction-section" id="top">
     <div class="construction-container">
       <div class="hammer"></div>
@@ -353,7 +357,8 @@
       document.querySelector('.nav-container').classList.toggle('open');
     });
 
-    
+  !function(){var t=window.addEventListener?"addEventListener":"attachEvent",e=window[t],
+  a="attachEvent"==t?"onmessage":"message",n=document.getElementById("test-eligibilite");e(a,function(t){t.data&&t.data.h&&(n.height=t.data.h)&&(n.style.height=t.data.h+'px')},!1)}();
 
     
   </script>

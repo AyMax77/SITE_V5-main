@@ -247,6 +247,11 @@ body {
 
 /* ==================== RESPONSIVE ==================== */
 
+@media (min-width: 2800px) {
+    .phone-button{
+    margin-left: 1430px;
+    }
+}
 /* ========== GRAND ÉCRAN (Desktop XL) ========== */
 @media (min-width: 1920px) {
     .logo-img {
@@ -256,6 +261,7 @@ body {
     .phone-button {
         font-size: 18px;
         padding: 14px 28px;
+        margin-right: 120px;
     }
 
     .eligibility-section {
